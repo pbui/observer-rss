@@ -1,0 +1,4 @@
+#!/bin/sh
+
+$(dirname $0)/observer-rss.py >| \
+    $HOME/.config/yldme/uploads/observer-rss

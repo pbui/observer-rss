@@ -1,0 +1,6 @@
+[Unit]
+Description=Generate Observer RSS
+
+[Service]
+Type=oneshot
+ExecStart=/home/pbui/src/personal/observer-rss/observer-rss.run
