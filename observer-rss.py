@@ -14,7 +14,6 @@ SECTIONS   = (
     'https://www.ndsmcobserver.com/section/sports',
     'https://www.ndsmcobserver.com/section/scene',
     'https://www.ndsmcobserver.com/section/viewpoint',
-    'https://www.ndsmcobserver.com/section/viewpoint',
 )
 
 # Functions
