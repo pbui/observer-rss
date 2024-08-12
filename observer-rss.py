@@ -15,11 +15,14 @@ SECTIONS   = (
     'https://www.ndsmcobserver.com/section/scene',
     'https://www.ndsmcobserver.com/section/viewpoint',
 )
+HEADERS    = {
+    'User-Agent': 'observer-rss',
+}
 
 # Functions
 
 def scrape_section(url):
-    response  = requests.get(url)
+    response  = requests.get(url, headers=HEADERS)
     html_text = response.text.replace('\n', '')
 
     for link, title, dateline in re.findall(ARTICLE_RX, html_text): 
