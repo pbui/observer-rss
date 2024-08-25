@@ -26,7 +26,10 @@ def scrape_section(url):
     html_text = response.text.replace('\n', '')
 
     for link, title, dateline in re.findall(ARTICLE_RX, html_text): 
-        pub_date = datetime.datetime.strptime(dateline, "%A, %B %d, %Y")
+        try:
+            pub_date = datetime.datetime.strptime(dateline, "%A, %B %d, %Y")
+        except ValueError:
+            pub_date = datetime.datetime.strptime(dateline, "%A, %b. %d, %Y")
 
         yield {
             'title'  : title,
