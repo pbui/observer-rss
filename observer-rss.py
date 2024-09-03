@@ -26,6 +26,8 @@ def scrape_section(url):
     html_text = response.text.replace('\n', '')
 
     for link, title, dateline in re.findall(ARTICLE_RX, html_text): 
+        # https://stackoverflow.com/questions/31991435/why-time-strptimesept-30-2014-b-d-y-not-working
+        dateline = dateline.replace('Sept', 'Sep')
         try:
             pub_date = datetime.datetime.strptime(dateline, "%A, %B %d, %Y")
         except ValueError:
