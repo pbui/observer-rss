@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 
+# pylint: disable=invalid-name,line-too-long
+
 import datetime
 import email
-import html 
 import re
 import requests
 
@@ -22,10 +23,10 @@ HEADERS    = {
 # Functions
 
 def scrape_section(url):
-    response  = requests.get(url, headers=HEADERS)
+    response  = requests.get(url, headers=HEADERS, timeout=30)
     html_text = response.text.replace('\n', '')
 
-    for link, title, dateline in re.findall(ARTICLE_RX, html_text): 
+    for link, title, dateline in re.findall(ARTICLE_RX, html_text):
         # https://stackoverflow.com/questions/31991435/why-time-strptimesept-30-2014-b-d-y-not-working
         dateline = dateline.replace('Sept', 'Sep')
         try:
